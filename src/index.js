@@ -14,9 +14,21 @@ class HomeList extends React.Component {
         return (
             <div>{
                 this.state.list.map((item, key) => {
-                    return (<div key={key} className="item">{item}</div>);
+                    return <Item key={key} content={item}/>;
                 })
             }</div>
+        );
+    }
+}
+
+class Item extends React.Component {
+    constructor(props) {
+        super(props)
+    }
+
+    render() {
+        return (
+            <div className="item">{this.props.content}</div>
         );
     }
 }
