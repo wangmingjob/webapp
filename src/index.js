@@ -12,11 +12,13 @@ class HomeList extends React.Component {
 
     render() {
         return (
-            <div>{
-                this.state.list.map((item, key) => {
-                    return <Item key={key} content={item}/>;
-                })
-            }</div>
+            <div>
+                {
+                    this.state.list.map((item, key) => {
+                        return <Item key={key} content={item} a={100} b={200}/>;
+                    })
+                }
+            </div>
         );
     }
 }
@@ -27,8 +29,15 @@ class Item extends React.Component {
     }
 
     render() {
+        const {content, a, b} = this.props;
         return (
-            <div className="item">{this.props.content}</div>
+            <div className="item">
+                <span className="itemSpan">{content}</span>
+                <span className="itemSpan">{a}</span>
+                <span className="itemSpan">{b}</span>
+                <img src="https://f12.baidu.com/it/u=692257718,1533707439&fm=76"></img>
+                <span>2018-10-13</span>
+            </div>
         );
     }
 }
