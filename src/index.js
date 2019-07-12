@@ -82,8 +82,13 @@ class MusicList extends React.Component {
         return (<div>
             {
                 this.state.list.map((item, key) => {
-                    return <Item key={key} title={item.resourceName} img={item.resourceImageUrl}
-                                 createdTime={item.createdTime}/>;
+                    return (
+                        <Item
+                            key={key}
+                            title={item.resourceName}
+                            img={item.resourceImageUrl}
+                            createdTime={item.createdTime}
+                        />);
                 })
             }
         </div>);
@@ -92,6 +97,7 @@ class MusicList extends React.Component {
     async componentWillMount() {
         let data = await this.getData();
         console.log('[data]=>', data);
+
         this.setState({
                 list: data,
             },
